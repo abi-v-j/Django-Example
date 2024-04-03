@@ -1,0 +1,52 @@
+{% extends 'Admin/Header.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreelancerType</title>
+</head>
+<body>
+    <a href="{%  url 'webadmin:LoadingHomePage'  %}">Home</a>
+    <form method="post">    
+  
+    <table align="center">{% csrf_token %}
+        <tr>
+            <td>FreelancerType</td>
+            <td><input type="text" name="txt_freelancertype" placeholder="Enter FreelancerType" value="{{disdata.freelancertype_name}}"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" name="btn_save" id="btn_save" value="Save">
+            <input type="submit" name="btn_cancel" id="btn_cancel" value="Cancel"></td>
+            </tr>
+    </table>
+    <table width="200" border="1" align="center">
+        <tr>
+            <td>Sl.no</td>
+            <td>FreelancerType</td>
+            <td>Action</td>
+        </tr>
+        {%  for i in FreelancerType %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.freelancertype_name}}</td>
+            <td><a href="{%  url 'webadmin:DeleteFreelancerType' i.id %}">Delete</a></td>
+          
+        
+            
+        </tr>
+        {% endfor %}
+        </table>
+    </form>
+    
+</body>
+</html>
+
+
+{% endblock content %}

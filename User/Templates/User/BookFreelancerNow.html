@@ -1,0 +1,57 @@
+{% extends 'User/Header.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+   
+    <table border="1" align="center" cellpadding="10">
+        <tr>
+            <td colspan="2" align="center"><img src="{{userdata.freelancer_photo.url}}" width="50" height="50" alt=""></td>
+        </tr>
+        <tr>
+            <td>Specialization</td>
+            <td>{{userdata.freelancertype.freelancertype_name}}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{userdata.freelancer_name}}</td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td>{{userdata.freelancer_contact}}</td>
+        </tr>
+    </table>
+
+    <form method="POST">
+        {% csrf_token %}
+        <table align="center">
+            <tr>
+                <td>For Date</td>
+                <td><input type="date" name="txtdate"></td>
+            </tr>
+            <tr>
+                <td>Message</td>
+                <td><textarea name="txtmsg" rows="3" cols="22"></textarea></td>
+            </tr>
+            <tr>
+                
+                <td colspan="2" align="center">
+                    <input type="submit" name="btnsubmit" value="Save">
+                    <input type="reset" name="btncancel" value="Cancel">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
+
+{% endblock content %}

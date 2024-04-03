@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RankList</title>
+    </head>
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="txtname" placeholder="Enter Name" required></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" name="gender" value="Male">Male<input type="radio" name="gender" value="Female">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td>
+                        <select name="ddlDept">
+                            <option
+                            value="BCA">BCA</option>
+                            <option
+                            value="BBA">BBA</option>
+                            </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Mark-1</td>
+                            <td><input type="text" name="txtmark1" placeholder="Enter Mark" required>
+                                <td>
+                         </tr>
+                    
+</head>
+<body>
+    
+</body>
+</html>

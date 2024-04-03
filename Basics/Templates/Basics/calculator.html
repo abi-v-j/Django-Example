@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <body>
+    <form method="POST">
+        {% csrf_token %}
+    </head>
+        <table>
+            <tr>
+                 <td>Num1</td>
+                 <td><input type="text" name="txtno1" placeholder="Enter Number" required></td>
+            </tr>
+            <tr>
+                <td>Num2</td>
+                <td><input type=" text" name="txtno2" placeholder="Enter Number" required></td>
+            </tr>
+            <tr>
+
+                <td colspan="2" align="center">
+                    <input type="submit" name="btnsubmit" value="+">
+                    <input type="submit" name="btnsubmit" value="-">
+                    <input type="submit" name="btnsubmit" value="*">
+                    <input type="submit" name="btnsubmit" value="/">
+                </td>
+            </tr>
+            <tr>
+                <td>Result</td>
+                <td>{{res}}</td>
+        </tr>
+</table>
+</form>
+
+</body>
+</html>

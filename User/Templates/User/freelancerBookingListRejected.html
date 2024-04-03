@@ -1,0 +1,54 @@
+{% extends 'User/Header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'User:homepage' %}">Home</a>
+    <table border="1" align="center" cellpadding="10">
+        <tr>
+            <th>Sl.No</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Proof</th>
+            <th>Photo</th>
+            <th>District</th>
+            <th>Place</th>
+            <th>PostDate</th>
+            <th>ForDate</th>
+            <th>Message</th>
+        </tr>
+        {% for i in userdata %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+        <td>{{i.freelancer.freelancertype.freelancertype_name}}</td>
+        
+        <td>{{i.freelancer.freelancer_name}}</td>
+        <td>{{i.freelancer.freelancer_contact}}</td>
+     
+        <td>{{i.freelancer.freelancer_email}}</td>
+        <td><img src="{{i.freelancer.freelancer_photo.url}}" width="50" height="50" alt=""></td>
+        <td><img src="{{i.freelancer.freelancer_proof.url}}" width="50" height="50" alt=""></td>
+        <td>{{i.freelancer.place.district.district_name}}</td>
+        <td>{{i.freelancer.place.place_name}}</td>
+            <td>{{i.booking_postdate}}</td>
+            <td>{{i.booking_fordate}}</td>
+            <td>{{i.booking_message}}</td>
+        
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,69 @@
+{% extends 'Provider/Header.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchJob</title>
+</head>
+<br><br>
+<body>
+    
+ 
+
+
+    <table border="1" align="center" cellpadding="10">
+        <tr>
+            <th>Sl.No</th>
+            <th>Category</th>
+            <th>JobTitle</th>
+            <th>LastDate</th>
+            <th>MinQualificatiob</th>
+            <th>SalaryScale</th>
+            <th>ApplyDate</th>
+            <th>Message</th>
+            <th>UserName</th>
+            <th>Contact</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Photo</th>
+            <th>Proof</th>
+            <th>Resume</th>
+            <th>Action</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.job.category.category_name}}</td>
+            <td>{{i.job.job_name}}</td>
+            <td>{{i.job.job_lastdate}}</td>
+            <td>{{i.job.job_minqual}}</td>
+            <td>{{i.job.job_salaryscale}}</td>
+            <td>{{i.application_postdate}}</td>
+            <td>{{i.application_message}}</td>
+            <td>{{i.user.user_name}}</td>
+            <td>{{i.user.user_contact}}</td>
+            <td>{{i.user.user_gender}}</td>
+            <td>{{i.user.user_email}}</td>
+            <td><img src="{{i.user.user_photo.url}}" width="50" height="50" alt=""></td>
+            <td><img src="{{i.user.user_proof.url}}" width="50" height="50" alt=""></td>
+            <td><img src="{{i.application_resume.url}}" width="50" height="50" alt=""></td>
+           <td>
+           
+            <a href="{% url 'Provider:rejectappln' i.id %}">Reject</a>
+           </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    
+    
+
+</body>
+</html>
+
+{% endblock content %}

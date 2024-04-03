@@ -1,0 +1,64 @@
+{% extends 'User/Header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchJob</title>
+</head>
+<br><br>
+<body>
+    
+ 
+
+
+    <table border="1" align="center" cellpadding="10">
+        <tr>
+            <th>Sl.No</th>
+            <th>Category</th>
+            <th>JobTitle</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Details</th>
+            <th>LastDate</th>
+            <th>MinQualificatiob</th>
+            <th>SalaryScale</th>
+            <th>ApplyDate</th>
+            <th>Message</th>
+            <th>ProviderName</th>
+            <th>Contact</th>
+          
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.job.category.category_name}}</td>
+            <td>{{i.job.job_name}}</td>
+            <td>{{i.job.job_contact}}</td>
+            <td>{{i.job.job_email}}</td>
+            <td>{{i.job.job_details}}</td>
+            <td>{{i.job.job_lastdate}}</td>
+            <td>{{i.job.job_minqual}}</td>
+            <td>{{i.job.job_salaryscale}}</td>
+            <td>{{i.application_postdate}}</td>
+            <td>{{i.application_message}}</td>
+            <td>{{i.job.provider.provider_name}}</td>
+            <td>{{i.job.provider.provider_contact}}</td>
+           
+           
+        </tr>
+        {% endfor %}
+
+    </table>
+    
+    
+
+</body>
+</html>
+
+
+{% endblock content %}
+

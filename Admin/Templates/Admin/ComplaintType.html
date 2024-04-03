@@ -1,0 +1,49 @@
+{% extends 'Admin/Header.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComplaintType</title>
+<body>
+    <a href="{%  url 'webadmin:LoadingHomePage'  %}">Home</a
+    <form method="post">
+        {% csrf_token %}
+    </head>
+    <table align="center">
+        <tr>
+            <td>type</td>
+            <td><input type="text" name="txt_Type" placeholder="Enter Type" required></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" name="btn_save" id="btn_save" value="Save">
+            <input type="submit" name="btn_cancel" id="btn_cancel" value="Cancel"></td>
+            </tr>
+    </table>
+    <table width="200" border="1" align="center">
+        <tr>
+            <td>Sl.no</td>
+            <td>ComplaintType</td>
+            <td>Action</td>
+        </tr>
+        {%  for i in ComplaintType %}
+          <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{i.ComplaintType_name}}</td>
+              <td>&nbsp;</td>
+          
+          </tr>
+          {% endfor %}
+        </table>
+    </form>
+    
+</body>
+</html>
+
+{% endblock content %}

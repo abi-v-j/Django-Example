@@ -1,0 +1,78 @@
+{% extends 'Provider/Header.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewUser</title>
+</head>
+<body>
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table align="center">
+            
+               
+            <tr>
+                <td>Category</td>
+                <td>
+                    <select name="sel_type" id="sel_type">
+                        <option value="">...Select...</option>
+                        {% for i in category %}
+                        <option value="{{i.id}}">{{i.category_name}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>JobTitle</td>
+                <td><input type="text" name="txtname" placeholder="Enter Name" required ></td>
+            </tr>
+           
+            <tr>
+                <td>Contact</td>
+                <td><input type="text" name="txtcontact" placeholder="Enter Contact" required ></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="txtemail" placeholder="Enter Email" required ></td>
+            </tr>
+
+            <tr>
+                <td>MinimumQualification</td>
+                <td><input type="text" name="txtqual" placeholder="Enter Qualification" required ></td>
+            </tr>
+            <tr>
+                <td>LastDateOfApplication</td>
+                <td><input type="date" name="txtdate"  required ></td>
+            </tr>
+
+            <tr>
+                <td>Details</td>
+                <td><textarea name="txtdetails" rows="2" cols="22"></textarea></td>
+            </tr>
+            <tr>
+                <td>SalaryScale</td>
+                <td><input type="text" name="txtscale"  required ></td>
+            </tr>
+            <tr>
+                
+                <td colspan="2" align="center">
+                    <input type="submit" name="btnsubmit" value="Save">
+                    <input type="reset" name="btncancel" value="Cancel">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    
+
+</body>
+</html>
+
+{% endblock content %}
+

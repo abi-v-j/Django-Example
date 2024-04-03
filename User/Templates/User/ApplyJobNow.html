@@ -1,0 +1,76 @@
+{% extends 'User/Header.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+   
+    <table border="1" align="center" cellpadding="10">
+       
+        <tr>
+            <td>Categroy</td>
+            <td>{{userdata.category.category_name}}</td>
+        </tr>
+        <tr>
+            <td>JobTitle</td>
+            <td>{{userdata.job_name}}</td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td>{{userdata.job_contact}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{userdata.job_email}}</td>
+        </tr>
+        <tr>
+            <td>Details</td>
+            <td>{{userdata.job_details}}</td>
+        </tr>
+        <tr>
+            <td>LastDate</td>
+            <td>{{userdata.job_lastdate}}</td>
+        </tr>
+        <tr>
+            <td>MinQualification</td>
+            <td>{{userdata.job_minqual}}</td>
+        </tr>
+        <tr>
+            <td>SalaryScale</td>
+            <td>{{userdata.job_salaryscale}}</td>
+        </tr>
+   
+    </table>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table align="center">
+            
+            <tr>
+                <td>Message</td>
+                <td><textarea name="txtmsg" rows="3" cols="22"></textarea></td>
+            </tr>
+            <tr>
+                <td>Resume</td>
+                <td><input type="file" name="fileresume"  required ></td>
+            </tr>
+            <tr>
+                
+                <td colspan="2" align="center">
+                    <input type="submit" name="btnsubmit" value="Save">
+                    <input type="reset" name="btncancel" value="Cancel">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,46 @@
+
+{% extends 'User/Header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'User:homepage' %}">Home</a>
+    <table border="1" align="center" cellpadding="10">
+        <tr>
+            <th>Sl.No</th>
+            <th>Specialization</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Photo</th>
+            <th>Place</th>
+            <th>PostDate</th>
+            <th>ForDate</th>
+            <th>ForTime</th>
+        </tr>
+        {% for i in userdata %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.doctor.specialization.specialization_name}}</td>
+            <td>{{i.doctor.doctor_name}}</td>
+            <td>{{i.doctor.doctor_contact}}</td>
+            <td><img src="{{i.doctor.doctor_photo.url}}" width="25" height="25" alt=""></td>
+            <td>{{i.doctor.place.place_name}}</td>
+            <td>{{i.app_postdate}}</td>
+            <td>{{i.app_fordate}}</td>
+            <td>{{i.app_fortime}}</td>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
+
+{% endblock content %}
